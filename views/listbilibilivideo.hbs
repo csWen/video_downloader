@@ -27,6 +27,7 @@
 <script>
     $(document).ready(function () {
         $("a").click(function () {
+            alert($(this).attr("headers"));
             if ($(this).attr("op") == "goBack") {
                 return true;
             }

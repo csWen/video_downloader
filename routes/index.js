@@ -24,6 +24,9 @@ router.post('/video', async function(req, res, next) {
     formats = [];
 
     request.get(url, function (err, resp, body) {
+        if (err) {
+            return;
+        }
         // check if it is valid url
         if(pattern.test(resp.request.uri.href)) {
             ytdl.getInfo(url, ['--youtube-skip-dash-manifest'], function(err, info) {
